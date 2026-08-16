@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MACK TECH</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- LOADING SCREEN -->
+
+<div id="loading-screen">
+
+    <div class="loading-content">
+
+        <div class="loading-logo">
+            MACK TECH
+        </div>
+
+        <div class="loader"></div>
+
+        <p>Loading...</p>
+
+    </div>
+
+</div>
+
+    <!-- NAVBAR -->
+    <header>
+
+        <nav class="navbar">
+
+            <div class="logo">
+                MACK TECH
+            </div>
+
+            <button class="menu-btn" onclick="toggleMenu()">
+                ☰
+            </button>
+             <button
+    class="theme-btn"
+    onclick="toggleDarkMode()"
+    aria-label="Toggle dark mode"
+>
+    🌙
+</button>
+
+            <div class="nav-links">
+
+                <a href="#">Home</a>
+
+                <a href="#products">
+                    Products
+                </a>
+
+                <a href="#about">
+                    About
+                </a>
+
+                <a href="#contact">
+                    Contact
+                </a>
+
+                <a href="#" onclick="openCart()">
+                    🛒 Cart
+                    (<span id="cart-count">0</span>)
+                </a>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <main>
+
+        <!-- HERO -->
+        <section class="hero">
+
+            <div class="hero-text">
+
+                <p class="small-title">
+                    WELCOME TO MACK TECH
+                </p>
+
+                <h1>
+                    Technology
+                    <br>
+                    Made Simple.
+                </h1>
+
+                <p class="description">
+                    Pata vifaa bora vya kielektroniki,
+                    simu na accessories kwa bei nzuri.
+                </p>
+
+                <button onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">
+    Shop Now →
+</button>
+                     
+          
+
+            </div>
+
+
+            <div class="hero-image">
+
+                <div class="image-box">
+
+                    <img
+                        src="phones.jpg"
+                        alt="Mobile Phone"
+                    >
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- CATEGORIES -->
+        <section class="categories">
+
+            <div class="section-title">
+
+                <p>
+                    SHOP BY CATEGORY
+                </p>
+
+                <h2>
+                    Explore Categories
+                </h2>
+
+            </div>
+
+
+            <div class="category-grid">
+                <button
+    class="show-all-btn"
+    onclick="showAllProducts()"
+>
+    View All Products
+</button>
+
+                <div class="category-card" onclick="filterCategory('phone')">
+
+                    <div class="category-icon">
+                        📱
+                    </div>
+
+                    <h3>
+                        Phones
+                    </h3>
+
+                    <p>
+                        Smartphones & Accessories
+                    </p>
+
+                </div>
+
+
+                <div class="category-card" onclick="filterCategory('laptop')">
+
+                    <div class="category-icon">
+                        💻
+                    </div>
+
+                    <h3>
+                        Laptops
+                    </h3>
+
+                    <p>
+                        Laptops & Computers
+                    </p>
+
+                </div>
+
+
+                <div class="category-card" onclick="filterCategory('audio')">
+
+                    <div class="category-icon">
+                        🎧
+                    </div>
+
+                    <h3>
+                        Audio
+                    </h3>
+
+                    <p>
+                        Earbuds & Headphones
+                    </p>
+
+                </div>
+
+
+                <div class="category-card" onclick="filterCategory('accessory')">
+
+                    <div class="category-icon">
+                        🔌
+                    </div>
+
+                    <h3>
+                        Accessories
+                    </h3>
+
+                    <p>
+                        Chargers & Power Banks
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- PRODUCTS -->
+        <section class="products" id="products">
+
+            <div class="section-title">
+
+                <p>
+                    OUR PRODUCTS
+                </p>
+
+                <h2>
+                    Featured Products
+                </h2>
+
+            </div>
+
+
+            <!-- SEARCH -->
+            <div class="search-box">
+
+                <input
+                    type="text"
+                    id="product-search"
+                    placeholder="Search products..."
+                    onkeyup="searchProducts()"
+                >
+
+            </div>
+
+
+            <!-- PRODUCT GRID -->
+            <div class="product-grid">
+
+
+                <!-- PHONE -->
+                <div
+                    class="product-card"
+                    data-name="mobile phone smartphone"
+                >
+
+                    <div class="product-image">
+
+                        <img
+                            src="phone.jpg"
+                        
+                            alt="Mobile Phone"
+                        >
+
+                    </div>
+
+                    <h3>
+                        Mobile Phone
+                    </h3>
+
+                    <p class="product-price">
+                        TZS 450,000
+                    </p>
+
+                    <button
+                        onclick="addToCart('Mobile Phone', 450000)"
+                    >
+                        Add to Cart
+                    </button>
+                    <button
+    class="details-btn"
+    onclick="showProductDetails('Mobile Phone')"
+>
+    View Details
+</button>
+
+                </div>
+
+
+
+                <!-- EARBUDS -->
+                <div
+                    class="product-card"
+                    data-name="wireless earbuds headphones audio"
+                >
+
+                    <div class="product-image">
+
+                        <img
+                            src="earbuds.jpg"
+                            alt="Wireless Earbuds"
+                        >
+
+                    </div>
+
+                    <h3>
+                        Wireless Earbuds
+                    </h3>
+
+                    <p class="product-price">
+                        TZS 65,000
+                    </p>
+
+                    <button
+                        onclick="addToCart('Wireless Earbuds', 65000)"
+                    >
+                        Add to Cart
+                    </button>
+<button
+    class="details-btn"
+    onclick="showProductDetails('Wireless Earbuds')"
+>
+    View Details
+</button>
+                </div>
+
+
+
+                <!-- POWER BANK -->
+                <div
+                    class="product-card"
+                    data-name="power bank battery"
+                >
+
+                    <div class="product-image">
+
+                        <img
+                            src="powerbank.jpg"
+                            alt="Power Bank"
+                        >
+
+                    </div>
+
+                    <h3>
+                        Power Bank
+                    </h3>
+
+                    <p class="product-price">
+                        TZS 45,000
+                    </p>
+
+                    <button
+                        onclick="addToCart('Power Bank', 45000)"
+                    >
+                        Add to Cart
+                    </button>
+<button
+    class="details-btn"
+    onclick="showProductDetails('Power Bank')"
+>
+    View Details
+</button> 
+                </div>
+
+
+
+                <!-- SMART WATCH -->
+                <div
+                    class="product-card"
+                    data-name="smart watch smartwatch"
+                >
+
+                    <div class="product-image">
+
+                        <img
+                            src="smartwatch.jpg"
+                            alt="Smart Watch"
+                        >
+
+                    </div>
+
+                    <h3>
+                        Smart Watch
+                    </h3>
+
+                    <p class="product-price">
+                        TZS 85,000
+                    </p>
+
+                    <button
+                        onclick="addToCart('Smart Watch', 85000)"
+                    >
+                        Add to Cart
+                    </button>
+<button
+    class="details-btn"
+    onclick="showProductDetails('Smart Watch')"
+>
+    View Details
+</button>
+                </div>
+
+
+
+                <!-- FAST CHARGER -->
+                <div
+                    class="product-card"
+                    data-name="fast charger charger"
+                >
+
+                    <div class="product-image">
+
+                        <img
+                            src="fastcharger.jpg"
+                            alt="Fast Charger"
+                        >
+
+                    </div>
+
+                    <h3>
+                        Fast Charger
+                    </h3>
+
+                    <p class="product-price">
+                        TZS 35,000
+                    </p>
+
+                    <button
+                        onclick="addToCart('Fast Charger', 35000)"
+                    >
+                        Add to Cart
+                    </button>
+<button
+    class="details-btn"
+    onclick="showProductDetails('Fast Charger')"
+>
+    View Details
+</button> 
+                </div>
+
+
+
+                <!-- LAPTOP -->
+                <div
+                    class="product-card"
+                    data-name="laptop computer"
+                >
+
+                    <div class="product-image">
+
+                        <img
+                            src="laptop.jpg"
+                            alt="Laptop"
+                        >
+
+                    </div>
+
+                    <h3>
+                        Laptop
+                    </h3>
+
+                    <p class="product-price">
+                        TZS 1,250,000
+                    </p>
+
+                    <button
+                        onclick="addToCart('Laptop', 1250000)"  >.
+                        Add to Cart.   
+                    </button>
+
+                </div>
+     <button
+    class="details-btn"
+    onclick="showProductDetails('Laptop')"
+         >
+               View Details
+       </button> 
+            </div>
+
+        </section>
+
+
+
+        <!-- ABOUT -->
+        <section
+            class="about"
+            id="about"
+        >
+
+            <div class="about-text">
+
+                <p class="small-title">
+                    ABOUT MACK TECH
+                </p>
+
+                <h2>
+                    Technology You Can Trust.
+                </h2>
+
+                <p>
+                    MACK TECH ni duka la vifaa
+                    vya kielektroniki linalokuletea
+                    bidhaa mbalimbali za technology
+                    kwa bei nzuri na huduma bora.
+                </p>
+
+                <p>
+                    Tunapatikana kwa ajili ya simu,
+                    laptops, earbuds, smart watches,
+                    chargers, power banks na
+                    accessories nyingine.
+                </p>
+
+            </div>
+
+
+            <div class="about-box">
+
+                <h3>
+                    Why Choose MACK TECH?
+                </h3>
+
+                <p>
+                    ✓ Quality Products
+                </p>
+
+                <p>
+                    ✓ Affordable Prices
+                </p>
+
+                <p>
+                    ✓ Fast Customer Support
+                </p>
+
+                <p>
+                    ✓ Easy Ordering
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- CONTACT -->
+        <section
+            class="contact"
+            id="contact"
+        >
+
+            <div class="section-title">
+
+                <p>
+                    GET IN TOUCH
+                </p>
+
+                <h2>
+                    Contact MACK TECH
+                </h2>
+
+            </div>
+
+
+            <div class="contact-box">
+
+                <p>
+                    📱 WhatsApp:
+                    +255 791315310
+                </p>
+
+                <p>
+                    📧 Email:
+                    shadrakimoshi@gmail.com
+                </p>
+
+                <p>
+                    📍 Dar es Salaam,
+                    Tanzania
+                </p>
+
+                <button
+                    onclick="contactWhatsApp()"
+                >
+                    Chat on WhatsApp
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+<!-- PRODUCT DETAILS MODAL -->
+
+<div id="product-modal" class="product-modal">
+
+    <div class="product-modal-content">
+
+        <button
+            class="modal-close"
+            onclick="closeProductDetails()"
+        >
+            ×
+        </button>
+<div class="product-gallery">
+
+    <div class="modal-product-image">
+        <img
+            id="modal-product-image"
+            src=""
+            alt="Product"
+        >
+    </div>
+
+    <div class="gallery-thumbnails">
+
+        <button
+            type="button"
+            onclick="changeProductImage(0)"
+        >
+            <img
+                id="thumb-0"
+                src=""
+                alt="Product thumbnail"
+            >
+        </button>
+
+        <button
+            type="button"
+            onclick="changeProductImage(1)"
+        >
+            <img
+                id="thumb-1"
+                src=""
+                alt="Product thumbnail"
+            >
+        </button>
+
+        <button
+            type="button"
+            onclick="changeProductImage(2)"
+        >
+            <img
+                id="thumb-2"
+                src=""
+                alt="Product thumbnail"
+            >
+        </button>
+
+    </div>
+
+</div>
+        <h2 id="modal-product-name">
+            Product Name
+        </h2>
+        <div id="modal-product-rating" class="modal-product-rating">
+    ⭐⭐⭐⭐⭐
+</div> 
+
+        <p id="modal-product-description">
+            Product description
+        </p>
+
+        <p class="modal-price">
+            TZS
+            <span id="modal-product-price">
+                0
+            </span>
+        </p>
+
+        <button
+            class="modal-cart-btn"
+            onclick="addModalProductToCart()"
+        >
+            🛒 Add to Cart
+        </button>
+
+    </div>
+
+</div>
+
+    <!-- CART -->
+    <div
+        id="cart-panel"
+        class="cart-panel"
+    >
+
+        <div class="cart-header">
+
+            <h2>
+                Your Cart
+            </h2>
+
+            <button
+                onclick="closeCart()"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <div id="cart-items">
+        </div>
+
+<!-- CHECKOUT FORM -->
+
+<div id="checkout-form" class="checkout-form">
+
+    <button
+        class="checkout-close"
+        onclick="closeCheckoutForm()"
+    >
+        ×
+    </button>
+
+    <h2>Checkout</h2>
+
+    <p>Jaza taarifa zako kabla ya ku-order.</p>
+
+    <input
+        type="text"
+        id="customer-name"
+        placeholder="Jina lako"
+    >
+
+    <input
+        type="tel"
+        id="customer-phone"
+        placeholder="Namba ya simu"
+    >
+
+    <input
+        type="text"
+        id="customer-location"
+        placeholder="Eneo la delivery"
+    >
+
+    <select id="payment-method">
+
+        <option value="">
+            Chagua njia ya malipo
+        </option>
+
+        <option value="Cash on Delivery">
+            Cash on Delivery
+        </option>
+
+        <option value="Mobile Money">
+            Mobile Money
+        </option>
+
+        <option value="Bank">
+            Bank
+        </option>
+
+    </select>
+<div id="order-summary" class="order-summary"></div>
+<!-- ORDER SUCCESS -->
+
+<div id="order-success" class="order-success">
+
+    <div class="success-icon">
+        ✓
+    </div>
+
+    <h2>Order Received!</h2>
+
+    <p>
+        Asante kwa kuagiza kutoka MACK TECH.
+    </p>
+
+    <p>
+        Tutawasiliana nawe muda mfupi.
+    </p>
+
+    <button onclick="closeOrderSuccess()">
+        Continue Shopping
+    </button>
+
+</div>
+      <div id="payment-info" class="payment-info"></div>
+    <button
+        class="confirm-order-btn"
+        onclick="confirmOrder()"
+    >
+        Confirm Order
+    </button>
+
+</div>
+        <div class="cart-footer">
+
+            <h3>
+                Total:
+                TZS
+                <span id="cart-total">
+                    0
+                </span>
+            </h3>
+
+            <button onclick="openCheckoutForm()">
+    Checkout
+</button>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="footer-content">
+
+            <h2>
+                MACK TECH
+            </h2>
+
+            <p>
+                Your trusted electronics
+                & technology store.
+            </p>
+
+
+            <div class="footer-links">
+
+                <a href="#">
+                    Home
+                </a>
+
+                <a href="#about">
+                    About
+                </a>
+
+                <a href="#contact">
+                    Contact
+                </a>
+
+            </div>
+
+
+            <p class="copyright">
+                © 2026 MACK TECH.
+                All Rights Reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- JAVASCRIPT -->
+    <script src="script.js"></script>
+<!-- FOOTER -->
+
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <div class="footer-box">
+            <h2>MACK TECH</h2>
+            <p>
+                Your trusted electronics store.
+                Quality products at affordable prices.
+            </p>
+        </div>
+
+        <div class="footer-box">
+            <h3>Quick Links</h3>
+            <a href="#">Home</a>
+            <a href="#products">Products</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </div>
+
+        <div class="footer-box">
+            <h3>Contact Us</h3>
+            <p>📱 +255 791 315 310</p>
+            <p>📧 shadrakimoshi@gmail.com@gmail.com</p>
+            <p>📍 Dar es Salaam, Tanzania</p>
+        </div>
+<div class="social-links">
+
+    <a href="https://wa.me/255791315310" target="_blank">
+        WhatsApp
+    </a>
+
+    <a href="https://www.instagram.com/mack_official.page?igsh=djd2Mm9lejVjeDJs" target="_blank">
+        Instagram
+    </a>
+
+    <a href="https://www.facebook.com/share/195xaUmBcS/" target="_blank">
+        Facebook
+    </a>
+
+    <a href="https://www.tiktok.com/@meshack_officialpage?_r=1&_t=ZS-98uXN4pFuyr" target="_blank">
+        TikTok
+    </a>
+
+</div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>
+            © 2026 MACK TECH. All Rights Reserved.
+        </p>
+    </div>
+
+</footer> 
+<!-- BACK TO TOP BUTTON -->
+
+<button
+    id="back-to-top"
+    onclick="scrollToTop()"
+    aria-label="Back to top"
+>
+    ↑
+</button>
+<!-- WHATSAPP FLOATING BUTTON -->
+
+<a
+    href="https://wa.me/255791315310?text=Habari%20MACK%20TECH%2C%20naomba%20kuulizia%20bidhaa."
+    class="whatsapp-float"
+    target="_blank"
+    aria-label="Chat on WhatsApp"
+>
+    💬
+</a> 
+</body>
+
+</html>
